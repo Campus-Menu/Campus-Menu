@@ -217,15 +217,18 @@ func clearAllRatings()
 }
 
 ---
+
 ## ⭐ Özel Bileşenler
 
 ### KM_StarRating
+
 - 5 yıldız interactive component
 - Tap ile rating değiştirme
 - Accessibility label: "1 yıldız", "2 yıldız", vb.
 - Animasyon: Star tap'te scale effect
 
 ### KM_MenuCard
+
 - Rounded rectangle card
 - Shadow: radius 4, opacity 0.1
 - Padding: 16pt
@@ -233,6 +236,7 @@ func clearAllRatings()
 - Meal listesi + kalori bilgisi
 
 ### KM_SearchBar
+
 - HStack with magnifyingglass icon
 - TextField placeholder: "Tarih veya yemek ara..."
 - Cancel button (text varsa göster)
@@ -243,12 +247,14 @@ func clearAllRatings()
 ## ♿ Erişilebilirlik
 
 ### Gereksinimler
+
 - **VoiceOver:** Tüm interactive elementler label'li
 - **Dynamic Type:** Tüm textler scalable
 - **Contrast Ratio:** Minimum 4.5:1
 - **Accessibility Identifiers:** UI test için ekle
 
 ### Örnekler
+
 ```swift
 // Star rating
 .accessibilityLabel("\(stars) yıldız")
@@ -264,11 +270,13 @@ func clearAllRatings()
 ## 🧪 Test Gereksinimleri
 
 ### Unit Tests
+
 - MenuService JSON parsing
 - RatingService CRUD operations
 - Date formatting utilities
 
 ### UI Tests
+
 - Tab navigation
 - Star rating interaction
 - Search functionality
@@ -309,3 +317,40 @@ func clearAllRatings()
 
 ---
 
+## 🎯 Kod Standartları
+
+### Naming Conventions
+
+- _Views:_ TodayView, ArchiveView
+- _Components:_ KM\_ prefix (KM_StarRating)
+- _Services:_ MenuService, RatingService
+- _Constants:_ UpperCamelCase (AppColors)
+
+### SwiftUI Best Practices
+
+- Extract subviews küçük component'lere ayır
+- @State sadece view-local data için
+- @StateObject service/manager'lar için
+- Preview'lar her view için ekle
+
+### Code Comments
+
+- Türkçe veya İngilizce (tutarlı ol)
+- Complex logic için açıklama yaz
+- MARK: - kullan (section'ları ayır)
+
+---
+
+## 🔄 Git Workflow
+
+### Branch Stratejisi
+
+- main: Production-ready kod
+- develop: Development branch
+- feature/[feature-name]: Yeni özellikler
+- bugfix/[bug-name]: Bug fix'ler
+
+### Commit Mesajları
+
+feat: Add star rating component
+fix: JSON parsing error on da…
