@@ -217,3 +217,95 @@ func clearAllRatings()
 }
 
 ---
+## ⭐ Özel Bileşenler
+
+### KM_StarRating
+- 5 yıldız interactive component
+- Tap ile rating değiştirme
+- Accessibility label: "1 yıldız", "2 yıldız", vb.
+- Animasyon: Star tap'te scale effect
+
+### KM_MenuCard
+- Rounded rectangle card
+- Shadow: radius 4, opacity 0.1
+- Padding: 16pt
+- Background: white
+- Meal listesi + kalori bilgisi
+
+### KM_SearchBar
+- HStack with magnifyingglass icon
+- TextField placeholder: "Tarih veya yemek ara..."
+- Cancel button (text varsa göster)
+- Focus durumunda smooth expand
+
+---
+
+## ♿ Erişilebilirlik
+
+### Gereksinimler
+- **VoiceOver:** Tüm interactive elementler label'li
+- **Dynamic Type:** Tüm textler scalable
+- **Contrast Ratio:** Minimum 4.5:1
+- **Accessibility Identifiers:** UI test için ekle
+
+### Örnekler
+```swift
+// Star rating
+.accessibilityLabel("\(stars) yıldız")
+.accessibilityHint("Puan vermek için dokun")
+
+// Menu card
+.accessibilityElement(children: .combine)
+.accessibilityLabel("\(meal.name), \(meal.calories ?? 0) kalori")
+```
+
+---
+
+## 🧪 Test Gereksinimleri
+
+### Unit Tests
+- MenuService JSON parsing
+- RatingService CRUD operations
+- Date formatting utilities
+
+### UI Tests
+- Tab navigation
+- Star rating interaction
+- Search functionality
+- Settings actions
+
+---
+
+## 📦 JSON Veri Formatı
+
+```json
+{
+  "menus": [
+    {
+      "id": "uuid-string",
+      "date": "2025-10-14",
+      "meals": [
+        {
+          "id": "uuid-string",
+          "name": "Mercimek Çorbası",
+          "calories": 150,
+          "type": "main"
+        }
+      ]
+    }
+  ]
+}
+```
+
+---
+
+## 🚀 Performans Optimizasyonu
+
+1. **LazyVStack** kullan (uzun listeler için)
+2. **@StateObject** vs **@ObservedObject** doğru kullan
+3. **Image caching** (gelecek için fotoğraf eklenirse)
+4. **Debounce** search input (300ms)
+5. **Background thread** JSON parsing
+
+---
+
