@@ -23,7 +23,7 @@ import java.util.*
 @Composable
 fun HomeScreen() {
     val today = Calendar.getInstance()
-    val dateFormat = SimpleDateFormat("d MMMM yyyy, EEEE", Locale("tr"))
+    val dateFormat = SimpleDateFormat("d MMMM yyyy, EEEE", Locale("tr", "TR"))
     val formattedDate = dateFormat.format(today.time)
     
     Scaffold(
@@ -100,7 +100,7 @@ fun WelcomeCard() {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
-                imageVector = Icons.Default.Restaurant,
+                imageVector = Icons.Filled.Restaurant,
                 contentDescription = null,
                 tint = Color(0xFF6366F1),
                 modifier = Modifier.size(40.dp)

@@ -84,7 +84,7 @@ fun WelcomeScreen(
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Restaurant,
+                            imageVector = Icons.Filled.Restaurant,
                             contentDescription = "Campus Menu Logo",
                             tint = Color.White,
                             modifier = Modifier.size(70.dp)
@@ -128,25 +128,25 @@ fun WelcomeScreen(
                     verticalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     FeatureCard(
-                        icon = Icons.Default.Restaurant,
+                        icon = Icons.Filled.Restaurant,
                         title = "Günlük Menüler",
                         description = "Her gün güncel yemek menülerini görüntüleyin"
                     )
                     
                     FeatureCard(
-                        icon = Icons.Default.Schedule,
+                        icon = Icons.Filled.Schedule,
                         title = "Haftalık Plan",
                         description = "Haftalık yemek programını önceden inceleyin"
                     )
                     
                     FeatureCard(
-                        icon = Icons.Default.Favorite,
+                        icon = Icons.Filled.Favorite,
                         title = "Favori Yemekler",
                         description = "Sevdiğiniz yemekleri kaydedin ve takip edin"
                     )
                     
                     FeatureCard(
-                        icon = Icons.Default.Notifications,
+                        icon = Icons.Filled.Notifications,
                         title = "Bildirimler",
                         description = "Yeni menüler hakkında anında haberdar olun"
                     )
