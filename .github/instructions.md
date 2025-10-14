@@ -82,12 +82,15 @@ static let xl: CGFloat = 32
 - ⚙️ Settings: gearshape
 
 ---
+
 ## 📱 Ekran Gereksinimleri
 
 ### 1. ContentView (Main TabView)
+
 - **Bottom TabBar** ile 3 ana ekran
 - Aktif tab highlight edilmeli
 - Tab değişimlerinde smooth animation
+
 ```swift
 TabView {
     TodayView().tabItem { Label("Bugün", systemImage: "calendar") }
@@ -97,38 +100,120 @@ TabView {
 ```
 
 ### 2. TodayView
+
 **Bileşenler:**
+
 - Navigation Title: "Bugünün Menüsü"
 - KM_MenuCard: Bugünün yemeklerini gösterir
 - KM_StarRating: 5 yıldız rating sistemi
 - Alt yazı: Rating durumu ("Henüz puanlanmadı", "İyi", vb.)
 
 **Fonksiyonellik:**
+
 - JSON'dan bugünün menüsünü oku
 - Kullanıcı rating'i UserDefaults'a kaydet
 - Rating değiştiğinde immediate update
 
 ### 3. ArchiveView
+
 **Bileşenler:**
+
 - KM_SearchBar: Tarih veya yemek adına göre arama
 - Scrollable List: Geçmiş menüler (tarih azalan sırada)
 - Her item: Tarih + yemek önizlemesi
 - Tap → Menu detail göster
 
 **Fonksiyonellik:**
+
 - Real-time search filtering
 - Tarih formatı: "14 Ekim 2025"
 - LazyVStack kullan (performans için)
 
 ### 4. SettingsView
+
 **Bileşenler:**
+
 - "JSON'u Yeniden Yükle" butonu
 - "Tüm Puanları Sıfırla" butonu (confirmation alert)
 - About section: App adı + versiyon
 
 **Fonksiyonellik:**
+
 - Reload JSON → MenuService'i refresh et
 - Reset ratings → UserDefaults'ı temizle
 - Alert dialogları göster
+
+---
+
+## 💾 Veri Modelleri
+
+### Menu Model
+
+swift
+struct Menu: Codable, Identifiable {
+let id: UUID
+let date: Date
+let meals: [Meal]
+}
+
+### Meal Model
+
+swift
+struct Meal: Codable, Identifiable {
+let id: UUID
+let name: String
+let calories: Int?
+let type: MealType // ana yemek, yan yemek, içecek
+}
+
+enum MealType: String, Codable {
+case main, side, drink
+}
+
+### Rating Model
+
+swift
+struct Rating: Codable {
+let menuId: UUID
+let stars: Int // 1-5
+let date: Date
+}
+
+---
+
+## 🔧 Servisler
+
+### MenuService
+
+_Sorumluluklar:_
+
+- menus.json dosyasını bundle'dan oku
+- JSON'u decode et
+- Bugünün menüsünü getir
+- Arşiv menüleri getir (filtreleme/arama desteği)
+
+swift
+class MenuService: ObservableObject {
+@Published var menus: [Menu] = []
+
+    func loadMenus()
+    func getTodayMenu() -> Menu?
+    func searchMenus(query: String) -> [Menu]
+
+}
+
+### RatingService
+
+_Sorumluluklar:_
+
+- UserDefaults'ta rating'leri sakla
+- Rating getir/kaydet/sıfırla
+
+swift
+class RatingService {
+func saveRating(for menuId: UUID, stars: Int)
+func getRating(for menuId: UUID) -> Int?
+func clearAllRatings()
+}
 
 ---
