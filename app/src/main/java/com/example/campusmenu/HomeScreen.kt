@@ -16,15 +16,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.campusmenu.ui.theme.CampusMenuTheme
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.util.Locale
+import java.text.SimpleDateFormat
+import java.util.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen() {
-    val today = LocalDate.now()
-    val formatter = DateTimeFormatter.ofPattern("d MMMM yyyy, EEEE", Locale("tr"))
+    val today = Calendar.getInstance()
+    val dateFormat = SimpleDateFormat("d MMMM yyyy, EEEE", Locale("tr"))
+    val formattedDate = dateFormat.format(today.time)
     
     Scaffold(
         topBar = {
@@ -36,7 +36,7 @@ fun HomeScreen() {
                             fontWeight = FontWeight.Bold
                         )
                         Text(
-                            text = today.format(formatter),
+                            text = formattedDate,
                             fontSize = 12.sp,
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f)
                         )
