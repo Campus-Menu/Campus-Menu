@@ -1,3 +1,45 @@
 <resources>
-    <string name="app_name">Campus Menu</string>
+    <string name="app_name">Kampüs Menüsü</string>
+    
+    <!-- Genel -->
+    <string name="success_rating">Değerlendirmeniz için teşekkürler!</string>
+
+    <!-- Login Screen -->
+    <string name="login_title">Hoş Geldiniz</string>
+    <string name="login_email_hint">E-posta Adresiniz</string>
+    <string name="login_password_hint">Şifreniz</string>
+    <string name="login_button">Giriş Yap</string>
+    <string name="login_register_link">Hesabın yok mu? Kayıt Ol</string>
+
+    <!-- Register Screen -->
+    <string name="register_title">Hesap Oluştur</string>
+    <string name="register_name_hint">Adınız Soyadınız</string>
+    <string name="register_email_hint">E-posta Adresiniz</string>
+    <string name="register_password_hint">Şifre Belirleyin</string>
+    <string name="register_password_confirm_hint">Şifrenizi Onaylayın</string>
+    <string name="register_button">Kayıt Ol</string>
+    <string name="register_login_link">Zaten bir hesabın var mı? Giriş Yap</string>
+
+    <!-- Home Screen -->
+    <string name="home_title">Günün Menüsü</string>
+    <string name="category_soup">Çorba</string>
+    <string name="category_main_dish">Ana Yemek</string>
+    <string name="category_side_dish">Yardımcı Yemek</string>
+    <string name="category_dessert">Tatlı / Meyve</string>
+
+    <!-- Rating Screen -->
+    <string name="rating_title">Yemeği Değerlendir</string>
+    <string name="rating_label">Puanınız:</string>
+    <string name="rating_comment_label">Yorumunuz</string>
+    <string name="rating_comment_hint">Bu yemek hakkındaki düşüncelerinizi yazın...</string>
+    <string name="rating_submit_button">Gönder</string>
+
+    <!-- History Screen -->
+    <string name="history_title">Geçmiş Menüler</string>
+    <string name="history_description">Görüntülemek istediğiniz tarihi seçin.</string>
+
+    <!-- Bottom Navigation -->
+    <string name="nav_today">Bugün</string>
+    <string name="nav_history">Geçmiş</string>
+    <string name="nav_profile">Profil</string>
 </resources>
